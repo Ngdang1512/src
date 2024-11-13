@@ -16,43 +16,43 @@ class Product {
         this.brand = brand;
     }
 
-    int getid() {
+    int getId() {
         return id;
     }
 
-    String getname() {
+    String getName() {
         return name;
     }
 
-    double getprice() {
+    double getPrice() {
         return price;
     }
 
-    int getquantity() {
+    int getQuantity() {
         return quantity;
     }
 
-    String getbrand() {
+    String getBrand() {
         return brand;
     }
 
-    void setid(int id) {
+    void setId(int id) {
         this.id = id;
     }
 
-    void setname(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
-    void setprice(double price) {
+    void setPrice(double price) {
         this.price = price;
     }
 
-    void setquantity(int quantity) {
+    void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    void setbrand(String brand) {
+    void setBrand(String brand) {
         this.brand = brand;
     }
 
@@ -75,6 +75,7 @@ class Racket extends Product {
 
     @Override
     public void displayInfo() {
+        super.displayInfo();
         System.out.println("Product Specification: " + specifications);
     }
 }
@@ -101,12 +102,14 @@ class Clothing extends Product {
     public Clothing(int id, String name, double price, int quantity, String brand, int sizeClothing, String gender) {
         super(id, name, price, quantity, brand);
         this.sizeClothing = sizeClothing;
+        this.gender = gender;
     }
 
     @Override
     public void displayInfo() {
         super.displayInfo();
         System.out.println("Size of Clothing: " + sizeClothing);
+        System.out.println("Gender of Clothing: " + gender);
     }
 }
 
@@ -119,42 +122,42 @@ class ProductManager {
 
     public void addProduct(Product product) {
         products.add(product);
-        System.out.println("Product added: " + product.getname());
+        System.out.println("Product added: " + product.getName());
     }
 
     public void removeProduct(int id) {
         for (Product product : products) {
-            if (product.getid() == id) {
+            if (product.getId() == id) {
                 products.remove(product);
-                System.out.println("Product Remove: " + product.getname());
+                System.out.println("Product Remove: " + product.getName());
                 return;
             }
         }
-        System.out.println("Product with ID: " + id + "Not Found.");
+        System.out.println("Product with ID: " + id + " Not Found.");
     }
 
     public void updateProduct(int id, String name, double price, int quantity, String brand) {
         for (Product product : products) {
-            if (product.getid() == id) {
-                product.setname(name);
-                product.setprice(price);
-                product.setquantity(quantity);
-                product.setbrand(brand);
-                System.out.println("Product Updated." + product.getname());
+            if (product.getId() == id) {
+                product.setName(name);
+                product.setPrice(price);
+                product.setQuantity(quantity);
+                product.setBrand(brand);
+                System.out.println("Product Updated: " + product.getName());
                 return;
             }
         }
-        System.out.println("Product with ID: " + id + "Not Found.");
+        System.out.println("Product with ID: " + id + " Not Found.");
     }
 
     public void searchProduct(int id) {
         for (Product product : products) {
-            if (product.getid() == id) {
-                System.out.println("Product Found: " + product.getname());
+            if (product.getId() == id) {
+                System.out.println("Product Founded: " + product.getName());
                 return;
             }
         }
-        System.out.println("Product with ID: " + id + "Not Found");
+        System.out.println("Product with ID: " + id + " Not Found");
     }
 
     public void displayAllProducts() {
